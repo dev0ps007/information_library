@@ -1,0 +1,87 @@
+.card.mb-3 {
+    margin-left: 18rem;
+    margin-top: 2rem;
+}
+
+.card-title {
+    text-align: center;
+}
+
+.card-text {
+    text-align: justify;
+}
+
+.container-fluid {
+    padding: 0 2rem 0 2rem;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.basic {
+    padding: 3rem 0 1rem 0;
+    font-family: sans-serif;
+    text-align: center;
+    align-items: center
+}
+
+.login, .register {
+    padding: 0rem 20rem 0 20rem;
+}
+
+.container.books.filter {
+    padding-top: 2rem;
+    padding-left: 10rem;
+}
+
+.container.search {
+    padding-top: 2rem;
+    padding-left: 14rem;
+}
+
+#table {
+    padding-top: 2rem;
+}
+
+.container.permissions {
+    padding-top: 2rem;
+}
+
+.not.found {
+    padding-top: 10rem;
+    padding-left: 25rem;
+}
+
+.error-container {
+    padding-left: 3rem;
+    padding-top: 3rem;
+}
+
+.form-control.me-2, .btn, .form-control, .alert.alert-danger {
+    border-radius: 10px;
+}
+
+body {
+   overflow-x: hidden;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+}
+
+p.copyright {
+    margin: 10px;
+}
+
+body {
+    overflow-x: hidden;
+    min-height: 100vh; 
+    display: flex; 
+    flex-direction: column;
+    margin: 0;
+}
+

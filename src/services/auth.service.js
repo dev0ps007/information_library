@@ -1,0 +1,26 @@
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+
+class AuthService {
+  async hashPassword(password, salt) {
+    return await bcrypt.hash(password, salt);
+  }
+
+  async verifyPassword(plainTextPassword, hashedPassword) {
+    return await bcrypt.compare(plainTextPassword, hashedPassword);
+  }
+
+  async getCookieWithJwtToken(userId) {
+    const payload = { userId };
+    const secret = process.env.JWT_TOKEN_SECRET;
+    const expiresIn = { expiresIn: `${process.env.JWT_TOKEN_EXPIRATION_TIME}s` };
+    const token = jwt.sign(payload, secret, expiresIn);
+    return `Authentication=${token}; HttpOnly; Path=/; Max-Age=${process.env.JWT_TOKEN_EXPIRATION_TIME}`;
+  }
+
+  async getCookieForLogOut() {
+    return 'Authentication=; HttpOnly; Path=/; Max-Age=0';
+  }
+}
+
+export default new AuthService();

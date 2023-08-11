@@ -1,0 +1,37 @@
+{{>sidebar}}
+
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="basic">
+                    <h3>{{title}}</h3>
+                </div>
+                <form action="/admin/permissions/{{permission.id}}/edit" method="post">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" name="title" class="form-control" id="title" placeholder="Title" required value="{{permission.title}}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea name="description" class="form-control" id="description" rows="5" placeholder="Description" required>{{permission.description}}</textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="entities" class="form-label">Entities</label>
+                        <select name="entity" class="form-select" aria-label="Default select example" required>
+                            {{#if permission.entity_title}}
+                                <option selected>{{permission.entity_title}}</option>
+                            {{else}}
+                                <option selected disabled>Entity</option>
+                            {{/if}}
+                            {{#each entities}}
+                                <option>{{title}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Apply</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

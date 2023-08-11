@@ -1,0 +1,24 @@
+{{>sidebar}}
+
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="basic">
+                    <h3>{{title}}</h3>
+                </div>
+                <form action="/admin/authors/{{author.id}}/edit" method="post">
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label">Full Name</label>
+                        <input type="text" name="fullName" class="form-control" id="fullName" placeholder="Full Name" required value="{{author.full_name}}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="biography" class="form-label">Biography</label>
+                        <textarea name="biography" class="form-control" id="biography" rows="5" placeholder="Biography" required>{{author.biography}}</textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Apply</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

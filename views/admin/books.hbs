@@ -1,0 +1,79 @@
+{{>sidebar}}
+
+<div class="container books filter">
+  <form action="/admin/books" role="search">
+    <div class="row">
+      <div class="col">
+          <select name="author" class="form-select" aria-label="Default select example">
+            <option></option>
+            {{#if author}}
+              <option selected>{{author}}</option>
+            {{else}}
+              <option selected disabled>Author</option>
+            {{/if}}
+            {{#each authors}}
+              <option>{{full_name}}</option>
+            {{/each}}
+          </select>
+        </form>
+      </div>
+      <div class="col">
+        <select name="genre" class="form-select" aria-label="Default select example">
+          <option></option>
+          {{#if genre}}
+              <option selected>{{genre}}</option>
+            {{else}}
+              <option selected disabled>Genre</option>
+            {{/if}}
+          {{#each genres}}
+            <option>{{title}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="col">
+        {{#if search}}
+          <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search" value="{{search}}">
+        {{else}}
+          <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
+        {{/if}}
+      </div>
+      <div class="col">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+{{#if books.length}}
+  {{#each books}}
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="/{{book_image}}" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{title}}</h5>
+            <h6>Author: {{author_full_name}}</h6>
+            <h6>Genre: {{genre_title}}</h6>
+            <h6>Publication date: {{publication_date}}</h6>
+            <p class="card-text">{{description}}</p>
+          </div>
+        </div> 
+      </div>
+    </div>
+    <div class="row" style="padding-left: 18rem;">
+      <div class="col-auto">
+        <a class="btn btn-secondary" href="/admin/books/{{id}}/edit">Edit</a>
+      </div>
+      <div class="col" style="padding-left: 0rem;">
+        <form action="/admin/books/{{id}}/delete" method="post">
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+  {{/each}}
+{{else}}
+  <h3 class="not found">Nothing found</h3>
+{{/if}}
+

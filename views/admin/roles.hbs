@@ -1,0 +1,56 @@
+{{>sidebar}}
+
+<div class="container search">
+  <form action="/admin/roles" role="search">
+    <div class="row">
+      <div class="col-8">
+        {{#if search}}
+          <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search" value="{{search}}">
+        {{else}}
+          <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
+        {{/if}}
+      </div>
+      <div class="col">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+{{#if roles.length}}
+  <div class="table" id="table">
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        {{#each roles}}
+          <tr>
+            <th scope="row">{{id}}</th>
+            <td>{{title}}</td>
+            <td>{{description}}</td>
+            <td>
+              <div class="row">
+                <div class="col-auto">
+                  <a class="btn btn-secondary" href="/admin/roles/{{id}}/edit">Edit</a>
+                </div>
+                <div class="col" style="padding-left: 0rem;">
+                  <form action="/admin/roles/{{id}}/delete" method="post">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                  </form>
+                </div>
+              </div>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+{{else}}
+  <h3 class="not found">Nothing found</h3>
+{{/if}}

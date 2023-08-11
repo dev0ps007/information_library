@@ -1,0 +1,62 @@
+{{>sidebar}}
+
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="basic">
+                    <h3>{{title}}</h3>
+                </div>
+                <form action="/admin/books/{{book.id}}/edit" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" name="title" class="form-control" id="title" placeholder="Title" required value="{{book.title}}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea name="description" class="form-control" id="description" rows="5" placeholder="Description" required>{{book.description}}</textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="publicationDate" class="form-label">Publication Date</label>
+                        <input type="date" name="publicationDate" class="form-control" id="publicationDate" placeholder="Publication Date" required value="{{book.publication_date}}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="authors" class="form-label">Authors</label>
+                        <select name="authorId" class="form-select" aria-label="Default select example" required>
+                            {{#if book.author_full_name}}
+                                <option value="{{book.author_id}}" selected>{{book.author_full_name}}</option>
+                            {{else}}
+                                <option selected disabled>Author</option>
+                            {{/if}}
+                            {{#each authors}}
+                                <option value="{{id}}">{{full_name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="genres" class="form-label">Genres</label>
+                        <select name="genreId" class="form-select" aria-label="Default select example" required>
+                            {{#if book.genre_title}}
+                                <option value="{{book.genre_id}}" selected>{{book.genre_title}}</option>
+                            {{else}}
+                                <option selected disabled>Genre</option>
+                            {{/if}}
+                            {{#each genres}}
+                                <option value="{{id}}">{{title}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="bookImage" class="form-label">Book Image</label>
+                        <input type="file" name="bookImage" class="form-control" id="bookImage" placeholder="Book Image">
+                    </div>
+                    <div class="mb-3">
+                        <label for="bookFile" class="form-label">Book File</label>
+                        <input type="file" name="bookFile" class="form-control" id="bookFile" placeholder="Book File">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Apply</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+{{>sidebar}}
+
+<div class="container search">
+  <form action="/admin/authors" role="search">
+    <div class="row">
+      <div class="col-8">
+        {{#if search}}
+          <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search" value="{{search}}">
+        {{else}}
+          <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
+        {{/if}}
+      </div>
+      <div class="col">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+{{#if authors.length}}
+  {{#each authors}}
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="card-body">
+          <h5 class="card-title">{{full_name}}</h5>
+          <p class="card-text">{{biography}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="padding-left: 18rem;">
+      <div class="col-auto">
+        <a class="btn btn-secondary" href="/admin/authors/{{id}}/edit">Edit</a>
+      </div>
+      <div class="col" style="padding-left: 0rem;">
+        <form action="/admin/authors/{{id}}/delete" method="post">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+  {{/each}}
+{{else}}
+  <h3 class="not found">Nothing found</h3>
+{{/if}}

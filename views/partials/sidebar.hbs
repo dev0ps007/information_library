@@ -1,0 +1,187 @@
+<nav class="navbar bg-body-tertiary fixed-top">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <ul class="nav nav-tabs">
+
+      {{#if isAdminAddBooks}}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/admin/books/new">New book</a>
+        </li>
+      {{else}}
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/admin/books/new">New book</a>
+        </li>
+      {{/if}}
+
+      {{#if isAdminAddAuthors}}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/admin/authors/new">New author</a>
+        </li>
+      {{else}}
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/admin/authors/new">New author</a>
+        </li>
+      {{/if}}
+
+      {{#if isAdminAddGenres}}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/admin/genres/new">New genre</a>
+        </li>
+      {{else}}
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/admin/genres/new">New genre</a>
+        </li>
+      {{/if}}
+
+      {{#if isOwner}}
+        {{#if isAdminAddAdministrators}}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/admin/administrators/new">New administrator</a>
+          </li>
+        {{else}}
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/admin/administrators/new">New administrator</a>
+          </li>
+        {{/if}}
+
+        {{#if isAdminAddRoles}}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/admin/roles/new">New role</a>
+          </li>
+        {{else}}
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/admin/roles/new">New role</a>
+          </li>
+        {{/if}}
+
+        {{#if isAdminAddPermissions}}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/admin/permissions/new">New permission</a>
+          </li>
+        {{else}}
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/admin/permissions/new">New permission</a>
+          </li>
+        {{/if}}
+
+        {{#if isAdminAddEntities}}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/admin/entities/new">New entity</a>
+          </li>
+        {{else}}
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/admin/entities/new">New entity</a>
+          </li>
+        {{/if}}
+      {{/if}}
+
+    </ul>
+    <a class="navbar-brand" href="/admin">Information Library</a>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Information Library</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
+          {{#if isAdminHome}}
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/admin">Home</a>
+            </li>
+          {{else}}
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/admin">Home</a>
+            </li>
+          {{/if}}
+  
+          {{#if isAdminBooks}}
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/admin/books">Books</a>
+            </li>
+          {{else}}
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/admin/books">Books</a>
+            </li>
+          {{/if}}
+  
+          {{#if isAdminAuthors}}
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/admin/authors">Authors</a>
+            </li>
+          {{else}}
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/admin/authors">Authors</a>
+            </li>
+          {{/if}}
+  
+          {{#if isAdminGenres}}
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/admin/genres">Genres</a>
+            </li>
+          {{else}}
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/admin/genres">Genres</a>
+            </li>
+          {{/if}}
+
+          {{#if isOwner}}
+            {{#if isAdminAdministrators}}
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/admin/administrators">Administrators</a>
+              </li>
+            {{else}}
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/admin/administrators">Administrators</a>
+              </li>
+            {{/if}}
+
+            {{#if isAdminRoles}}
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/admin/roles">Roles</a>
+              </li>
+            {{else}}
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/admin/roles">Roles</a>
+              </li>
+            {{/if}}
+
+            {{#if isAdminPermissions}}
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/admin/permissions">Permissions</a>
+              </li>
+            {{else}}
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/admin/permissions">Permissions</a>
+              </li>
+            {{/if}}
+
+            {{#if isAdminEntities}}
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/admin/entities">Entities</a>
+              </li>
+            {{else}}
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/admin/entities">Entities</a>
+              </li>
+            {{/if}}
+          {{/if}}
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Settings
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/admin/profile">Profile</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="/auth/logout">LogOut</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

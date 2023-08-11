@@ -1,0 +1,13 @@
+<div class="login">
+  <div class="basic">
+    <h3>Confirm LogIn code</h3>
+  </div>
+  <form action="/auth/login/2fa/code" method="post">
+    <div class="mb-2">
+      <label for="code" class="form-label">Code</label>
+      <input type="number" name="code" class="form-control" id="code" placeholder="Code" required>
+    </div>
+    <input type="hidden" name="email" value="{{administrator.email}}">
+    <button type="submit" class="btn btn-primary mb-2">Confirm</button>
+  </form>
+</div>
